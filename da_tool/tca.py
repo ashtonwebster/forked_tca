@@ -68,7 +68,7 @@ class TCA:
         elif kerneltype == 'rbf':
             if x2 is not None:
                 sum_x2 = np.sum(np.multiply(x2, x2), axis=1)
-                sum_x2 = sum_x2.reshape((len(sum_x2), 1))
+                sum_x2 = sum_x2.values.reshape((len(sum_x2), 1))
                 K = np.exp(-1 * (
                     np.tile(np.sum(np.multiply(x1, x1), axis=1).T, (n2, 1)) + np.tile(sum_x2, (1, n1)) - 2 * np.dot(x2,
                                                                                                                     x1.T)) / (
